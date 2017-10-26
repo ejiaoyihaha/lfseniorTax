@@ -26,6 +26,16 @@
 	    	document.forms[0].action="${basePath}nsfw/user_delete.action?user.id="+id;
 	    	document.forms[0].submit();
 	    }
+	    
+	    function doExportExcel(){
+	    	window.open("${basePath}nsfw/user_exportFile.action")
+	    }
+	    
+	    function doImportExcel(){
+	    	document.forms[0].action="${basePath}nsfw/user_importExcel.action";
+	    	document.forms[0].submit();
+	    }
+	    
     </script>
 </head>
 <body class="rightBody">

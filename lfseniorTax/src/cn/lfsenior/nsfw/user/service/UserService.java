@@ -1,7 +1,10 @@
 package cn.lfsenior.nsfw.user.service;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.List;
+
+import javax.servlet.ServletOutputStream;
 
 import cn.lfsenior.nsfw.user.entity.User;
 
@@ -37,4 +40,26 @@ public interface UserService {
 	 * @return
 	 */
 	public List<User> findObjects();
+
+	/**
+	 * 导出用户列表
+	 * @param userList
+	 * @param outputStream
+	 */
+	public void exportExcel(List<User> userList, ServletOutputStream outputStream);
+
+	/**
+	 * 导入用户列表 
+	 * @param userExcel
+	 * @param userExcelFileName
+	 */
+	public void importExcel(File userExcel, String userExcelFileName);
+
+	/**
+	 * 验证数据唯一性
+	 * @param id
+	 * @param account
+	 * @return
+	 */
+	public List<User> findUserByAccountAndId(String id, String account);
 }
